@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Aplicacao", "1 - Aplicacao", "{11500218-A1C7-4EE6-AAD5-7BD827D4A4FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{93796362-7897-4F3F-8B8F-F22CC7937681}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Servicos", "3 - Servicos", "{E7F6FB5E-18D9-4309-99AB-9663884676D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infraestrutura", "4 - Infraestrutura", "{E9559B12-17C7-4E12-BD62-9D2BE1E55900}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoGlass.Aplicacao", "AutoGlass.Aplicacao\AutoGlass.Aplicacao.csproj", "{E5F6AD63-3A60-43AF-AEDB-EAF1A5217AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoGlass.Dominio", "AutoGlass.Dominio\AutoGlass.Dominio.csproj", "{973AA936-DD17-4E85-9E61-3A362B85C619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoGlass.Servico", "AutoGlass.Servico\AutoGlass.Servico.csproj", "{DC45D52A-D714-4818-9622-EC47FC8867F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoGlass.Infra.Dados", "AutoGlass.Infra.Dados\AutoGlass.Infra.Dados.csproj", "{865E570A-401D-41AA-B42B-94E306C528FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5F6AD63-3A60-43AF-AEDB-EAF1A5217AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F6AD63-3A60-43AF-AEDB-EAF1A5217AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F6AD63-3A60-43AF-AEDB-EAF1A5217AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F6AD63-3A60-43AF-AEDB-EAF1A5217AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973AA936-DD17-4E85-9E61-3A362B85C619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973AA936-DD17-4E85-9E61-3A362B85C619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{973AA936-DD17-4E85-9E61-3A362B85C619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{973AA936-DD17-4E85-9E61-3A362B85C619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC45D52A-D714-4818-9622-EC47FC8867F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC45D52A-D714-4818-9622-EC47FC8867F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC45D52A-D714-4818-9622-EC47FC8867F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC45D52A-D714-4818-9622-EC47FC8867F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865E570A-401D-41AA-B42B-94E306C528FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865E570A-401D-41AA-B42B-94E306C528FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865E570A-401D-41AA-B42B-94E306C528FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865E570A-401D-41AA-B42B-94E306C528FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5F6AD63-3A60-43AF-AEDB-EAF1A5217AFB} = {11500218-A1C7-4EE6-AAD5-7BD827D4A4FB}
+		{973AA936-DD17-4E85-9E61-3A362B85C619} = {93796362-7897-4F3F-8B8F-F22CC7937681}
+		{DC45D52A-D714-4818-9622-EC47FC8867F4} = {E7F6FB5E-18D9-4309-99AB-9663884676D5}
+		{865E570A-401D-41AA-B42B-94E306C528FE} = {E9559B12-17C7-4E12-BD62-9D2BE1E55900}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D00AC479-FB46-4767-BD68-A86BB7974B31}
+	EndGlobalSection
+EndGlobal
