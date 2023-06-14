@@ -25,7 +25,7 @@ namespace AutoGlass.Infra.Dados.Contexto
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer("Server=(LocalDB)\\Local;Database=AutoGlass;Integrated Security=true;");
+                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01;Database=DbAutoGlass;Integrated Security=true;encrypt=false;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AutoGlass.Servico.Servicos
 {
@@ -24,8 +25,10 @@ namespace AutoGlass.Servico.Servicos
 
         public async Task Criar(ProdutoDTO produtoDTO)
         {
-            if (produtoDTO.Nome.Contains("teste"))
-                throw new ArgumentException("Erro ao tentar cadastrar o produto!");
+            int resultado = DateTime.Compare(produtoDTO.DataFabricacao, produtoDTO.DataValidade);
+
+            if (resultado > 0)
+                throw new ArgumentException("A data de Fabricação não pode ser Maior ou Igual a Data de Validade");
 
             var produto = _mapper.Map<Produto>(produtoDTO);
 
@@ -36,6 +39,11 @@ namespace AutoGlass.Servico.Servicos
 
         public async Task Atualizar(ProdutoDTO produtoDTO)
         {
+            int resultado = DateTime.Compare(produtoDTO.DataFabricacao, produtoDTO.DataValidade);
+
+            if (resultado > 0)
+                throw new ArgumentException("A data de Fabricação não pode ser Maior ou Igual a Data de Validade");
+
             var produto = _mapper.Map<Produto>(produtoDTO);
             var linhasAfetadas = await _repositorioProduto.Atualizar(produto);
             if (linhasAfetadas == 0)

@@ -22,10 +22,37 @@ namespace AutoGlass.Infra.Dados.ConfiguracaoDasEntidades
                .HasColumnName("Nome")
                .HasColumnType($"Varchar({500})");
 
-            entityTypeBuilder.Property(x => x.Descricao)
+            entityTypeBuilder.Property(x => x.DescricaoProduto)
               .IsRequired()
-              .HasColumnName("Descricao")
+              .HasColumnName("DescricaoProduto")
               .HasColumnType($"Varchar({1000})");
+
+            entityTypeBuilder.Property(x => x.DescricaoFornecedor)
+              .HasColumnName("DescricaoFornecedor")
+              .HasColumnType($"Varchar({1000})");
+
+            entityTypeBuilder.Property(x => x.CodigoProduto)
+             .IsRequired()
+             .HasColumnName("CodigoProduto")
+             .HasColumnType($"Int");
+
+            entityTypeBuilder.Property(x => x.CodigoFornecedor)
+             .HasColumnName("CodigoFornecedor")
+             .HasColumnType($"Int");
+
+            entityTypeBuilder.Property(x => x.CNPJFornecedor)
+              .HasColumnName("CNPJFornecedor")
+              .HasColumnType("varchar(14)");
+
+            entityTypeBuilder.Property(x => x.DataFabricacao)
+               .IsRequired()
+               .HasColumnName("DataFabricacao")
+               .HasColumnType("datetime");
+
+            entityTypeBuilder.Property(x => x.DataValidade)
+               .IsRequired()
+               .HasColumnName("DataValidade")
+               .HasColumnType("datetime");
 
             entityTypeBuilder.Property(x => x.Situacao)
               .IsRequired()
