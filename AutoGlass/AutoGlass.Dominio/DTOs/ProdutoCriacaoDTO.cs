@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AutoGlass.Dominio.DTOs
 {
-    public class ProdutoDTO
+    public class ProdutoCriacaoDTO
     {
-        public Guid? Id { get; set; }
         public string Nome { get; set; }
         public string DescricaoProduto { get; set; }
         public string DescricaoFornecedor { get; set; }

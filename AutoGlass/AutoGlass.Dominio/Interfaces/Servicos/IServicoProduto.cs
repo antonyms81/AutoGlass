@@ -9,10 +9,11 @@ namespace AutoGlass.Dominio.Interfaces.Servicos
 {
     public interface IServicoProduto
     {
-        Task Criar(ProdutoDTO produtoDTO);
-        Task Atualizar(ProdutoDTO produtoDTO);
+        Task Criar(ProdutoCriacaoDTO produtoCriacaoDTO);
+        Task Atualizar(ProdutoAtualizacaoDTO produtoAtualizacaoDTO);
         Task Excluir(Guid id);
         Task<ProdutoDTO> BuscarPeloId(Guid id);
         Task<List<ProdutoDTO>> BuscarTodos(string nome, int pageIndex, int pageSize);
+        Task<List<ProdutoDTO>> BuscarPorCodigoProduto(int codigoProduto);
     }
 }

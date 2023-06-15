@@ -2,6 +2,7 @@
 using AutoGlass.Dominio.Interfaces.Repositorios;
 using AutoGlass.Infra.Dados.Contexto;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,15 @@ namespace AutoGlass.Infra.Dados.Repositorios
             .OrderBy(x => x.Nome)
             .Skip((pageIndex - 1) * pageSize)
             .Take(pageSize)
+            .ToListAsync();
+        }
+
+        public async Task<List<Produto>> BuscarPorCodigoProduto(int codigoProduto)
+        {
+            return await _contexto.Produtos.Where(x =>
+                 x.CodigoProduto == codigoProduto
+            )
+            .OrderBy(x => x.CodigoProduto)
             .ToListAsync();
         }
     }

@@ -23,28 +23,28 @@ namespace AutoGlass.Servico.Servicos
             _repositorioProduto = repositorioProduto;
         }
 
-        public async Task Criar(ProdutoDTO produtoDTO)
+        public async Task Criar(ProdutoCriacaoDTO produtoCriacaoDTO)
         {
-            int resultado = DateTime.Compare(produtoDTO.DataFabricacao, produtoDTO.DataValidade);
+            int resultado = DateTime.Compare(produtoCriacaoDTO.DataFabricacao, produtoCriacaoDTO.DataValidade);
 
             if (resultado > 0)
                 throw new ArgumentException("A data de Fabricação não pode ser Maior ou Igual a Data de Validade");
 
-            var produto = _mapper.Map<Produto>(produtoDTO);
+            var produto = _mapper.Map<Produto>(produtoCriacaoDTO);
 
             var linhasAfetadas = await _repositorioProduto.Criar(produto);
             if (linhasAfetadas == 0)
                 throw new ArgumentException("Erro ao tentar cadastrar o produto!");
         }
 
-        public async Task Atualizar(ProdutoDTO produtoDTO)
+        public async Task Atualizar(ProdutoAtualizacaoDTO produtoAtualizacaoDTO)
         {
-            int resultado = DateTime.Compare(produtoDTO.DataFabricacao, produtoDTO.DataValidade);
+            int resultado = DateTime.Compare(produtoAtualizacaoDTO.DataFabricacao, produtoAtualizacaoDTO.DataValidade);
 
             if (resultado > 0)
                 throw new ArgumentException("A data de Fabricação não pode ser Maior ou Igual a Data de Validade");
 
-            var produto = _mapper.Map<Produto>(produtoDTO);
+            var produto = _mapper.Map<Produto>(produtoAtualizacaoDTO);
             var linhasAfetadas = await _repositorioProduto.Atualizar(produto);
             if (linhasAfetadas == 0)
                 throw new ArgumentException("Erro ao tentar atualizar o produto!");
@@ -68,6 +68,14 @@ namespace AutoGlass.Servico.Servicos
         public async Task<List<ProdutoDTO>> BuscarTodos(string nome, int pageIndex, int pageSize)
         {
             var produtos = await _repositorioProduto.BuscarTodos(nome, pageIndex, pageSize);
+            var produtosDTO = _mapper.Map<List<ProdutoDTO>>(produtos);
+
+            return produtosDTO;
+        }
+
+        public async Task<List<ProdutoDTO>> BuscarPorCodigoProduto(int codigoProduto)
+        {
+            var produtos = await _repositorioProduto.BuscarPorCodigoProduto(codigoProduto);
             var produtosDTO = _mapper.Map<List<ProdutoDTO>>(produtos);
 
             return produtosDTO;

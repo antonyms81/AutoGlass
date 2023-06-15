@@ -18,11 +18,11 @@ namespace AutoGlass.Aplicacao.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Criar([FromBody] ProdutoDTO produtoDTO)
+        public async Task<IActionResult> Criar([FromBody] ProdutoCriacaoDTO produtoCriacaoDTO)
         {
             try
             {
-                await _servicoProduto.Criar(produtoDTO);
+                await _servicoProduto.Criar(produtoCriacaoDTO);
 
                 return Ok();
             }
@@ -37,11 +37,11 @@ namespace AutoGlass.Aplicacao.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Atualizar([FromBody] ProdutoDTO produtoDTO)
+        public async Task<IActionResult> Atualizar([FromBody] ProdutoAtualizacaoDTO produtoAtualizacaoDTO)
         {
             try
             {
-                await _servicoProduto.Atualizar(produtoDTO);
+                await _servicoProduto.Atualizar(produtoAtualizacaoDTO);
 
                 return Ok();
             }
@@ -111,5 +111,26 @@ namespace AutoGlass.Aplicacao.Controllers
                 return NotFound(excecao);
             }
         }
+
+
+        [HttpGet("CodigoProduto")]
+        public async Task<IActionResult> BuscarPorCodigoProduto(int codigoProduto)
+        {
+            try
+            {
+                var produtoDTO = await _servicoProduto.BuscarPorCodigoProduto(codigoProduto);
+
+                return Ok(produtoDTO);
+            }
+            catch (ArgumentException excecaoDeArgumento)
+            {
+                return NotFound(excecaoDeArgumento.Message);
+            }
+            catch (Exception excecao)
+            {
+                return NotFound(excecao);
+            }
+        }
+
     }
 }

@@ -14,5 +14,6 @@ namespace AutoGlass.Dominio.Interfaces.Repositorios
         Task<int> Excluir(Guid id);
         Task<Produto> BuscarPeloId(Guid id);
         Task<List<Produto>> BuscarTodos(string nome, int pageIndex, int pageSize);
+        Task<List<Produto>> BuscarPorCodigoProduto(int codigoProduto);
     }
 }
