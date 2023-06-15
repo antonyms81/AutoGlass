@@ -3,6 +3,7 @@ using AutoGlass.Dominio.Interfaces.Servicos;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 namespace AutoGlass.Aplicacao.Controllers
 {
@@ -20,6 +21,9 @@ namespace AutoGlass.Aplicacao.Controllers
         [HttpPost]
         public async Task<IActionResult> Criar([FromBody] ProdutoCriacaoDTO produtoCriacaoDTO)
         {
+            string cnpjFornecedor = Regex.Replace(produtoCriacaoDTO.CNPJFornecedor, "[^0-9]", "");
+            produtoCriacaoDTO.CNPJFornecedor = cnpjFornecedor;
+
             try
             {
                 await _servicoProduto.Criar(produtoCriacaoDTO);
@@ -39,6 +43,8 @@ namespace AutoGlass.Aplicacao.Controllers
         [HttpPut]
         public async Task<IActionResult> Atualizar([FromBody] ProdutoAtualizacaoDTO produtoAtualizacaoDTO)
         {
+            string cnpjFornecedor = Regex.Replace(produtoAtualizacaoDTO.CNPJFornecedor, "[^0-9]", "");
+            produtoAtualizacaoDTO.CNPJFornecedor = cnpjFornecedor;
             try
             {
                 await _servicoProduto.Atualizar(produtoAtualizacaoDTO);

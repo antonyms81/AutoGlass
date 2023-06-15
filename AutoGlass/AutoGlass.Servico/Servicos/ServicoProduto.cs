@@ -27,7 +27,7 @@ namespace AutoGlass.Servico.Servicos
         {
             int resultado = DateTime.Compare(produtoCriacaoDTO.DataFabricacao, produtoCriacaoDTO.DataValidade);
 
-            if (resultado > 0)
+            if (resultado >= 0)
                 throw new ArgumentException("A data de Fabricação não pode ser Maior ou Igual a Data de Validade");
 
             var produto = _mapper.Map<Produto>(produtoCriacaoDTO);
